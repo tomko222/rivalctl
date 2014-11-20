@@ -1,3 +1,5 @@
+PySide
 pyudev>=0.16
 webcolors>=1.4
 ioctl_opt>=1.2
+PyYAML
