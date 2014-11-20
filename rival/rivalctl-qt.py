@@ -62,7 +62,7 @@ wheel_color_area.clicked.connect(wheel_color_area.choose_color)
 # wheel_style
 wheel_style_label = QLabel("Wheel style:")
 layout.addWidget(wheel_style_label, 0, 2)
-wheel_style_combo_box = QComboBox()  # Value+1 !!! 0 - turned off?
+wheel_style_combo_box = QComboBox()
 wheel_style_combo_box.addItem("Steady")
 wheel_style_combo_box.addItem("Slow breath")
 wheel_style_combo_box.addItem("Middle breath")
@@ -79,7 +79,7 @@ logo_color_area.clicked.connect(logo_color_area.choose_color)
 # logo_style
 logo_style_label = QLabel("Logo style:")
 layout.addWidget(logo_style_label, 1, 2)
-logo_style_combo_box = QComboBox()  # Value+1 !!! 0 - turned off?
+logo_style_combo_box = QComboBox()
 logo_style_combo_box.addItem("Steady")
 logo_style_combo_box.addItem("Slow breath")
 logo_style_combo_box.addItem("Middle breath")
