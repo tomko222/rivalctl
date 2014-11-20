@@ -119,7 +119,6 @@ save_push_button.clicked.connect(save_slot)
 layout.addWidget(save_push_button, 4, 0)
 
 reset_push_button = QPushButton("Reset to factory defaults")
-# button_one.clicked.connect(color_area_one.choose_color)
 layout.addWidget(reset_push_button, 4, 1)
 
 central_widget = QWidget()
