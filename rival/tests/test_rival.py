@@ -6,6 +6,7 @@ p = os.path.realpath(os.path.join(p, '../'))
 sys.path.insert(0,p)
 from rival import *
 
+
 class TestBasicSets(unittest.TestCase):
 
     def test_set_led_color(self):
@@ -32,8 +33,6 @@ class TestBasicSets(unittest.TestCase):
 
         self.assertRaises(ValueError, set_wheel_color, 0)
         self.assertRaises(ValueError, set_logo_color, 0)
-
-
 
     def test_set_led_style(self):
         self.assertEqual(set_led_style(LED_LOGO, LED_STYLE_STEADY), '\x07\x01\x01')
@@ -92,8 +91,10 @@ class TestBasicSets(unittest.TestCase):
 def _set_wheel_color(profile, val):
     profile.wheel_color = val
 
+
 def _set_logo_color(profile, val):
     profile.logo_color = val
+
 
 class TestProfile(unittest.TestCase):
     def test_default_report_list(self):
@@ -116,7 +117,6 @@ class TestProfile(unittest.TestCase):
         self.assertEqual(profile.wheel_color, (255, 255, 255))
         self.assertRaises(ValueError, _set_wheel_color, profile, 'browny-blue')
         self.assertRaises(ValueError, _set_logo_color, profile, 'browny-blue')
-
 
     def test_from_yaml(self):
         yaml="""

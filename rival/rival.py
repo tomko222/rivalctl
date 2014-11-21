@@ -32,17 +32,20 @@ def open_device(dev_path=None):
         dev_path = find_device_path()
     return hidraw.HIDRaw(open(dev_path, 'w+'))
 
+
 def is_strtype(obj):
     try:
         return isinstance(obj, basestring)
     except NameError:
         return isinstance(obj, str)
 
+
 def send(report, device=None):
     """send a report packet to the device"""
     if device is None:
         device = open_device()
     device.sendFeatureReport(report)
+
 
 def set_led_color(led, color):
     if led not in (LED_LOGO, LED_WHEEL):
@@ -62,6 +65,7 @@ def set_led_color(led, color):
     args = (chr(led),) + tuple([chr(b) for b in color])
     return "\x08%s%s%s%s" % args
 
+
 def set_led_style(led, style):
     if led not in (LED_LOGO, LED_WHEEL):
         raise ValueError("Invalid LED: %s" % (led,))
@@ -69,17 +73,22 @@ def set_led_style(led, style):
         return '\x07%s%s' % (chr(led), chr(style))
     raise ValueError("Invalid Style %s, valid values are 1, 2, 3 and 4" % (style,))
 
+
 def set_wheel_color(color):
     return set_led_color(LED_WHEEL, color)
+
 
 def set_logo_color(color):
     return set_led_color(LED_LOGO, color)
 
+
 def set_wheel_style(style):
     return set_led_style(LED_WHEEL, style)
 
+
 def set_logo_style(style):
     return set_led_style(LED_LOGO, style)
+
 
 def set_cpi(cpinum, value):
     if cpinum not in (1,2):
@@ -90,6 +99,7 @@ def set_cpi(cpinum, value):
         raise ValueError("CPI Must be between 50 and 6500")
     return '\x03%s%s' % (chr(cpinum), chr(value/50),)
 
+
 def set_cpi_1(value):
     return set_cpi(1, value)
 
@@ -97,8 +107,10 @@ def set_cpi_1(value):
 def set_cpi_2(value):
     return set_cpi(2, value)
 
+
 def commit():
     return '\x09'
+
 
 def set_polling_rate(rate):
     if rate == 1000:

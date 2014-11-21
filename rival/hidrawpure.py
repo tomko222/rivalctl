@@ -28,12 +28,14 @@ else:
     def b(x):
         return codecs.latin_1_encode(x)[0]
 
+
 # hidraw.h
 class _hidraw_report_descriptor(ctypes.Structure):
     _fields_ = [
         ('size', ctypes.c_uint),
         ('value', ctypes.c_ubyte * _HID_MAX_DESCRIPTOR_SIZE),
         ]
+
 
 class _hidraw_devinfo(ctypes.Structure):
     _fields_ = [
@@ -59,6 +61,7 @@ HIDRAW_MAX_DEVICES = 64
 HIDRAW_BUFFER_SIZE = 64
 
 DevInfo = collections.namedtuple('DevInfo', ['bustype', 'vendor', 'product'])
+
 
 class HIDRaw(object):
     """

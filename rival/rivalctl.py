@@ -14,9 +14,11 @@ except ImportError:
 
 import argparse
 
+
 def send_reports(reports):
     for report in reports:
         send(report)
+
 
 def _main(args):
     reports = []
@@ -59,6 +61,7 @@ parser.add_argument("--cpi1", type=int, metavar="CPI", help="50-6500 in incremen
 parser.add_argument("--cpi2", type=int, metavar="CPI", help="50-6500 in increments of 50 [default 1600]")
 parser.add_argument("--profile", type=str, metavar="PROFILE", help="profile name or path to file")
 parser.add_argument("--polling-rate", metavar="RATE", type=int, help="1000, 500, 250, or 125 [default=1000]", choices=[1000,500,250,125])
+
 
 def main():
     if len(sys.argv) == 1:
